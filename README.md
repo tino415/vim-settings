@@ -11,4 +11,7 @@ Plugins:
   vim.-fuzzyfinder
   systastic
   l9
-  gdbvim
+  taglist
+
+Dependenci:
+	ctags (ubuntu sudo apt-get install exuberant-ctags)
