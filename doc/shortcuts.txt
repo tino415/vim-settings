@@ -1,0 +1,48 @@
+(ctrl + y) + ,	Emmet expand, if in visual mode, can wrap selected text
+(ctrl + y) + n	In insert mode, go to next editable possition
+(ctrl + y) + N	In insert mode, go to previous editable possition
+(ctrl + y) + k	Remove tag in which is cursor
+(ctrl + y) + j	Change tag format onliner normal
+(ctrl + y) + /	Toggle html comment
+(ctrl + y) + a  Make anchor from url
+(ctrl + y) + A	Make quote from url
+
+ALIGN
+visual line select + Tab command 
+ex '<, '>Tab /:	     - align by :
+ex '<, '>Tab/:\zs    - align by first character after :
+insert mode + Tab    - auto find aligning
+
+:rename[!] {newname} - Rename actual file
+
+FuziFinder - openning files/search 
+ :FufBuffer       - Buffer mode (|fuf-buffer-mode|)
+ :FufFile         - File mode (|fuf-file-mode|)
+ :FufCoverageFile - Coverage-File mode (|fuf-coveragefile-mode|)
+ :FufDir          - Directory mode (|fuf-dir-mode|)
+ :FufMruFile      - MRU-File mode (|fuf-mrufile-mode|)
+ :FufMruCmd       - MRU-Command mode (|fuf-mrucmd-mode|)
+ :FufBookmarkFile - Bookmark-File mode (|fuf-bookmarkfile-mode|)
+ :FufBookmarkDir  - Bookmark-Dir mode (|fuf-bookmarkdir-mode|)
+ :FufTag          - Tag mode (|fuf-tag-mode|)
+ :FufBufferTag    - Buffer-Tag mode (|fuf-buffertag-mode|)
+ :FufTaggedFile   - Tagged-File mode (|fuf-taggedfile-mode|)
+ :FufJumpList     - Jump-List mode (|fuf-jumplist-mode|)
+ :FufChangeList   - Change-List mode (|fuf-changelist-mode|)
+ :FufQuickfix     - Quickfix mode (|fuf-quickfix-mode|)
+ :FufLine         - Line mode (|fuf-line-mode|)
+ :FufHelp         - Help mode (|fuf-help-mode|)
+
+Multiple cursors
+(Ctrl + n)     - Select next word
+(Ctrl + p)     - Go to prewious selected
+(Ctrl + x)     - Skip
+(Ctrl + <ESC>) - Abort
+
+Windows
+(Ctrl + w) + s - or :sp ${height}sp 
+(Ctrl + w) + v - or :vsp ${width}vsp
+(Ctrl + w) + j - go to down window
+(Ctrl + w) + h - go to left window
+(Ctrl + w) + k - go to up window
+(Ctrl + w) + l - go to right window

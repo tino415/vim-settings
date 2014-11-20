@@ -1,0 +1,2 @@
+This set has dependency on ctags app
+* for ubuntu sudo apt-get install exuberant-ctags
