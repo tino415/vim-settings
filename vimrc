@@ -3,54 +3,73 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set number
 set tabstop=4
+set expandtab
+set shiftwidth=4
 set autoindent
 set tags=./tags;/
+set list listchars=tab:»-,trail:·,extends:»,precedes:«
 
 hi Comment ctermfg=LightBlue
+set cursorline
 
 execute pathogen#infect()
 
+"set list listchars=tab:→-,trail:·,extends:»,precedes:«,nbsp:×
+
+autocmd! bufreadpost * set noexpandtab | retab! 4
+
+autocmd! bufwritepre * set expandtab | retab! 4
+
+autocmd! bufwritepost * set noexpandtab | retab! 4
+
+map <C-f>f :FufFile<CR>
+map <C-f>t :FufTag<CR>
+map <C-f>b :FufBuffer<CR>
+
+
 function Abbr_c()
-	abbr mutx pthread_mutex_t mutex_<name> = PTHREAD_MUTEX_INITIALIZER;
-	abbr semf sem_t sem_<name>;
+    abbr mutx pthread_mutex_t mutex_<name> = PTHREAD_MUTEX_INITIALIZER;
+    abbr semf sem_t sem_<name>;
 endfun
 
 command Abbrc call Abbr_c()
 
 function Mn_c()
-    echo "(ctrl + y) + n	In insert mode, go to next editable possition"
-    echo "(ctrl + y) + N	In insert mode, go to previous editable possition"
-    echo "(ctrl + y) + k	Remove tag in which is cursor"
-    echo "(ctrl + y) + j	Change tag format onliner normal"
-    echo "(ctrl + y) + /	Toggle html comment"
-    echo "(ctrl + y) + a  Make anchor from url"
-    echo "(ctrl + y) + A	Make quote from url"
+    echo "(ctrl + y) + n    In insert mode, go to next editable possition"
+    echo "(ctrl + y) + N    In insert mode, go to previous editable possition"
+    echo "(ctrl + y) + k    Remove tag in which is cursor"
+    echo "(ctrl + y) + j    Change tag format onliner normal"
+    echo "(ctrl + y) + /    Toggle html comment"
+    echo "(ctrl + y) + a    Make anchor from url"
+    echo "(ctrl + y) + A    Make quote from url"
     echo ""
+    echo "Move bytween errors :lnext :prev"
+
     echo "ALIGN"
     echo "visual line select + Tab command "
-    echo "ex '<, '>Tab /:	     - align by :"
+    echo "ex '<, '>Tab /:        - align by :"
     echo "ex '<, '>Tab/:\zs    - align by first character after :"
     echo "insert mode + Tab    - auto find aligning"
     echo ""
     echo ":rename[!] {newname} - Rename actual file"
     echo ""
     echo "FuziFinder - openning files/search "
-    echo " :FufBuffer       - Buffer mode (|fuf-buffer-mode|)"
-    echo " :FufFile         - File mode (|fuf-file-mode|)"
-    echo " :FufCoverageFile - Coverage-File mode (|fuf-coveragefile-mode|)"
-    echo " :FufDir          - Directory mode (|fuf-dir-mode|)"
-    echo " :FufMruFile      - MRU-File mode (|fuf-mrufile-mode|)"
-    echo " :FufMruCmd       - MRU-Command mode (|fuf-mrucmd-mode|)"
-    echo " :FufBookmarkFile - Bookmark-File mode (|fuf-bookmarkfile-mode|)"
-    echo " :FufBookmarkDir  - Bookmark-Dir mode (|fuf-bookmarkdir-mode|)"
-    echo " :FufTag          - Tag mode (|fuf-tag-mode|)"
-    echo " :FufBufferTag    - Buffer-Tag mode (|fuf-buffertag-mode|)"
-    echo " :FufTaggedFile   - Tagged-File mode (|fuf-taggedfile-mode|)"
-    echo " :FufJumpList     - Jump-List mode (|fuf-jumplist-mode|)"
-    echo " :FufChangeList   - Change-List mode (|fuf-changelist-mode|)"
-    echo " :FufQuickfix     - Quickfix mode (|fuf-quickfix-mode|)"
-    echo " :FufLine         - Line mode (|fuf-line-mode|)"
-    echo " :FufHelp         - Help mode (|fuf-help-mode|)"
+    echo " :FufBuffer || <C-f>b - Buffer mode (|fuf-buffer-mode|)"
+    echo " :FufFile || <C-f>f   - File mode (|fuf-file-mode|)"
+    echo " :FufCoverageFile     - Coverage-File mode (|fuf-coveragefile-mode|)"
+    echo " :FufDir              - Directory mode (|fuf-dir-mode|)"
+    echo " :FufMruFile          - MRU-File mode (|fuf-mrufile-mode|)"
+    echo " :FufMruCmd           - MRU-Command mode (|fuf-mrucmd-mode|)"
+    echo " :FufBookmarkFile     - Bookmark-File mode (|fuf-bookmarkfile-mode|)"
+    echo " :FufBookmarkDir      - Bookmark-Dir mode (|fuf-bookmarkdir-mode|)"
+    echo " :FufTag||<C-f>t      - Tag mode (|fuf-tag-mode|)"
+    echo " :FufBufferTag        - Buffer-Tag mode (|fuf-buffertag-mode|)"
+    echo " :FufTaggedFile       - Tagged-File mode (|fuf-taggedfile-mode|)"
+    echo " :FufJumpList         - Jump-List mode (|fuf-jumplist-mode|)"
+    echo " :FufChangeList       - Change-List mode (|fuf-changelist-mode|)"
+    echo " :FufQuickfix         - Quickfix mode (|fuf-quickfix-mode|)"
+    echo " :FufLine             - Line mode (|fuf-line-mode|)"
+    echo " :FufHelp             - Help mode (|fuf-help-mode|)"
     echo ""
     echo "Multiple cursors"
     echo "(Ctrl + n)     - Select next word"
