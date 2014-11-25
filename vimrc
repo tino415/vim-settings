@@ -1,5 +1,7 @@
 filetype plugin on
 
+let g:syntastic_python_pylint_args="-d C0326 C0111 -f parsable -r n -i y"
+
 set omnifunc=syntaxcomplete#Complete
 set number
 set tabstop=4
@@ -26,7 +28,6 @@ map <C-f>f :FufFile<CR>
 map <C-f>t :FufTag<CR>
 map <C-f>b :FufBuffer<CR>
 
-
 function Abbr_c()
     abbr mutx pthread_mutex_t mutex_<name> = PTHREAD_MUTEX_INITIALIZER;
     abbr semf sem_t sem_<name>;
@@ -43,8 +44,9 @@ function Mn_c()
     echo "(ctrl + y) + a    Make anchor from url"
     echo "(ctrl + y) + A    Make quote from url"
     echo ""
-    echo "Move bytween errors :lnext :prev"
-
+    echo "Move bytwe    n errors :lnext :lprev"
+    echo ":Error    Print all errors window"
+    echo ""
     echo "ALIGN"
     echo "visual line select + Tab command "
     echo "ex '<, '>Tab /:        - align by :"
