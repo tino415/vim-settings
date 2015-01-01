@@ -10,13 +10,17 @@ set shiftwidth=4
 set autoindent
 set tags=./tags;/
 set list listchars=tab:»-,trail:·,extends:»,precedes:«
+set tags=./tags;/
+set list listchars=tab:»-,trail:·,extends:»,precedes:«
 
 hi Comment ctermfg=LightBlue
 set cursorline
 
-execute pathogen#infect()
+let g:user_emment_setting = {
+\   'indentation' : '   '
+\}
 
-"set list listchars=tab:→-,trail:·,extends:»,precedes:«,nbsp:×
+execute pathogen#infect()
 
 autocmd! bufreadpost * set noexpandtab | retab! 4
 
