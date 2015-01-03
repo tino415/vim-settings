@@ -9,4 +9,6 @@ git clone https://github.com/godlygeek/tabular.git vim/bundle/tabular
 git clone https://github.com/terryma/vim-multiple-cursors.git vim/bundle/vim-multiple-cursors
 git clone https://github.com/scrooloose/syntastic.git vim/bundle/syntastic
 
-sudo apt-get install links
+sudo apt-get install links php-pear cscope
+
+sudo pear install PHP_CodeSniffer
