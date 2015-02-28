@@ -10,8 +10,6 @@ set shiftwidth=4
 set autoindent
 set tags=./tags;/
 set list listchars=tab:»-,trail:·,extends:»,precedes:«
-set tags=./tags;/
-set list listchars=tab:»-,trail:·,extends:»,precedes:«
 
 hi Comment ctermfg=LightBlue
 set cursorline
@@ -39,18 +37,28 @@ endfun
 
 command Abbrc call Abbr_c()
 
-function! RunPhpcs()
-    let l:filename=@%
-    let l:phpcs_output=system('phpcs --report=csv --standard=phpcs '.l:filename)
-    echo l:phpcs_output
-    let l:phpcs_list=split(l:phpcs_output, "\n")
-    unlet l:phpcs_list[0]
-    cexpr l:phpcs_list
-    cwindow
-endfunction
+" function! RunPhpcs()
+"   let l:filename=@%
+"   let l:phpcs_output=system('phpcs --report=csv --standard=phpcs '.l:filename)
+"   echo l:phpcs_output
+"   let l:phpcs_list=split(l:phpcs_output, "\n")
+"   unlet l:phpcs_list[0]
+"   cexpr l:phpcs_list
+"   cwindow
+" endfunction
 
 set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
 command! Phpcs execute RunPhpcs()
+
+function Cp_c()
+    set nolist
+    set nonu
+endfun
+
+function Ncp_c()
+    set list listchars=tab:»-,trail:·,extends:»,precedes:«
+    set nu
+endfun
 
 function Mn_c()
     echo "(ctrl + y) + n    In insert mode, go to next editable possition"
@@ -106,3 +114,5 @@ function Mn_c()
 endfun
 
 command Mn call Mn_c()
+command CP call Cp_c()
+command NCP call Ncp_c()
