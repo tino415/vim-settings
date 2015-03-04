@@ -1,6 +1,7 @@
 filetype plugin on
 
 let g:syntastic_python_pylint_args="-d C0326 C0111 -f parsable -r n -i y"
+let g:syntastic_php_checkers=['php']
 
 set omnifunc=syntaxcomplete#Complete
 set number
@@ -36,19 +37,6 @@ function Abbr_c()
 endfun
 
 command Abbrc call Abbr_c()
-
-" function! RunPhpcs()
-"   let l:filename=@%
-"   let l:phpcs_output=system('phpcs --report=csv --standard=phpcs '.l:filename)
-"   echo l:phpcs_output
-"   let l:phpcs_list=split(l:phpcs_output, "\n")
-"   unlet l:phpcs_list[0]
-"   cexpr l:phpcs_list
-"   cwindow
-" endfunction
-
-set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
-command! Phpcs execute RunPhpcs()
 
 function Cp_c()
     set nolist
