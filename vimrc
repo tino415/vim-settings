@@ -31,6 +31,13 @@ map <C-f>f :FufFile<CR>
 map <C-f>t :FufTag<CR>
 map <C-f>b :FufBuffer<CR>
 
+function Tb_f() range
+    let deli = input('Delimiter : ')
+    execute a:firstline.', '.a:lastline.' Tabularize /'.deli
+endfun
+
+vmap <C-t> :call Tb_f()<CR>
+
 function Abbr_c()
     abbr mutx pthread_mutex_t mutex_<name> = PTHREAD_MUTEX_INITIALIZER;
     abbr semf sem_t sem_<name>;
@@ -49,6 +56,7 @@ function Ncp_c()
 endfun
 
 function Mn_c()
+    echo "Emmet"
     echo "(ctrl + y) + n    In insert mode, go to next editable possition"
     echo "(ctrl + y) + N    In insert mode, go to previous editable possition"
     echo "(ctrl + y) + k    Remove tag in which is cursor"
@@ -60,10 +68,8 @@ function Mn_c()
     echo "Move bytwe    n errors :lnext :lprev"
     echo ":Error    Print all errors window"
     echo ""
-    echo "ALIGN"
-    echo "visual line select + Tab command "
-    echo "ex '<, '>Tab /:        - align by :"
-    echo "ex '<, '>Tab/:\zs    - align by first character after :"
+    echo "Aling"
+    echo "(ctrl + t)           - in visual mode align by key"
     echo "insert mode + Tab    - auto find aligning"
     echo ""
     echo ":rename[!] {newname} - Rename actual file"
