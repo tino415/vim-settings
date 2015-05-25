@@ -4,9 +4,7 @@ let g:syntastic_python_pylint_args="-d C0326 C0111 -f parsable -r n -i y"
 let g:syntastic_php_checkers=['php']
 
 set clipboard+=unnamed  " use the clipboards of vim and win
-set paste               " Paste from a windows or from vim
 set go+=a               " Visual selection automatically copied to the clipboard
-
 set omnifunc=syntaxcomplete#Complete
 set number
 set tabstop=4
