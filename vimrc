@@ -8,11 +8,14 @@ set go+=a               " Visual selection automatically copied to the clipboard
 set omnifunc=syntaxcomplete#Complete
 set number
 set tabstop=4
-set expandtab
+set softtabstop=4
 set shiftwidth=4
+set expandtab
 set autoindent
 set tags=./tags;/
 set list listchars=tab:»-,trail:·,extends:»,precedes:«
+
+au! FileType sass set tabstop=2 softtabstop=2 shiftwidth=2
 
 hi Comment ctermfg=LightBlue
 set cursorline
