@@ -1,9 +1,10 @@
 filetype plugin on
+filetype plugin indent on
 
 let g:syntastic_python_pylint_args="-d C0326 C0111 -f parsable -r n -i y"
 let g:syntastic_php_checkers=['php']
 
-set clipboard+=unnamed  " use the clipboards of vim and win
+set clipboard+=unnamed " use the clipboards of vim and win
 set go+=a               " Visual selection automatically copied to the clipboard
 set omnifunc=syntaxcomplete#Complete
 set number
@@ -15,7 +16,6 @@ set autoindent
 set tags=./tags;/
 set list listchars=tab:»-,trail:·,extends:»,precedes:«
 
-au! FileType sass set tabstop=2 softtabstop=2 shiftwidth=2
 
 hi Comment ctermfg=LightBlue
 set cursorline
@@ -26,16 +26,20 @@ let g:user_emment_setting = {
 
 execute pathogen#infect()
 
-let fts = '*.php, *.py, *.css, *.c, *.js, *.tex, vimrc'
-
 function Ft_tabs(set)
+    if &ft == 'html' || &ft == 'sass' || &ft == 'xml'
+        setlocal tabstop=2
+        setlocal shiftwidth=2
+        setlocal softtabstop=2
+        setlocal list listchars=tab:\|\ ,trail:·,extends:»,precedes:«
+    endif
     if &ft != 'makefile' && &ft != 'make'
         if a:set == 'noexpand'
             set noexpandtab
         elseif a:set == 'expand'
             set expandtab
         endif
-        retab! 4
+        retab! &tabstop 
     endif
 endfun
 
